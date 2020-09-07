@@ -1,0 +1,47 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-31</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background: #270F34;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle>
+      :doodle {
+        @grid:12x100;
+        @size: 1em;
+        grid-gap: 1px;
+      }
+      :container {
+        grid-gap: 80px;
+      }
+  
+      @shape: @p(star, triangle, star, heart);
+      @size: @r(1.5em,0.5em);
+      background-color: hsla(@r(360), 85%, @r(70%, 90%), @r(.9));
+      transform: translate3d(@r(150px), @r(200px), 0) rotate(@r(360deg));
+      animation: test infinite 5s linear alternate;
+  
+      @keyframes test {
+        0% {
+          transform: translate3d(0, 0, 0);
+        }
+        50% {
+          transform: translate3d(@r(-500%, 1000%), @r(-550%, 1000%), 0);
+        }
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+    </css-doodle>
+  </body>
+</html>

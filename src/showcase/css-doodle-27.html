@@ -1,0 +1,99 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-27</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      * {
+      box-sizing: border-box;
+    }
+  
+    :root {
+      --bw: 2px;
+      --tint-bg: #0a0c27;
+      --tint-stripe: #2c2d45;
+    }
+  
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: var(--tint-bg);
+      color: var(--tint-stripe);
+    }
+  
+    .logo {
+      position: relative;
+      margin: 0;
+      padding: 0.5rem 1rem;
+      border: var(--bw) solid currentColor;
+      background: var(--tint-bg);
+    }
+  
+    .title {
+      font-family: Lato, "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      font-weight: 400;
+      font-size: 4vmin;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  
+    .doodle {
+      display: grid;
+      place-content: center;
+  
+      height: 100vh;
+    }
+    </style>
+  </head>
+  <body>
+    <style>
+      :root {
+        --stripe-bg: #0a0c27;
+        --stripe-tint: var(--tint-stripe);
+        --stripe-w: 3px;
+  
+        --stripe0-inner: 0;
+        --stripe0-outer: var(--stripe-w);
+  
+        --stripe1-outer: 20%;
+        --stripe1-inner: calc(var(--stripe1-outer) - var(--stripe-w));
+  
+        --waves: (
+          content: "";
+          display: block;
+          width: 100%;
+          height: 100%;
+          background-image: repeating-radial-gradient(
+            circle,
+  
+            var(--tint-stripe) var(--stripe0-inner) var(--stripe0-outer),            
+            var(--tint-bg)   var(--stripe0-outer) var(--stripe1-inner)
+          );
+        );
+      }
+    </style>
+  
+    <div class="doodle">
+      <css-doodle>
+        :doodle { 
+          @grid: 10 / 100vmax; 
+  
+          position: absolute;
+        }
+  
+        :before {
+          position: absolute;
+          top: -50%;
+          @use: var(--waves);
+        }
+  
+        :after {
+          position: absolute;
+          left: -50%;
+          @use: var(--waves);
+        }
+      </css-doodle>
+      <h1 class="title logo">London CSS</h1>
+    </div>
+  </body>
+</html>

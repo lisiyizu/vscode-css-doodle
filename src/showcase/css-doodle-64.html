@@ -1,0 +1,90 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-64</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        /* background: #000064; */
+      }
+      .doodle{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle>
+      background: #b35288;
+      
+      :doodle {
+        @grid: 19 / 100vmax;
+      }
+      
+      border: 3px solid #1b1b1c;
+      transform-origin: top left;
+      
+      --rotation-delay: calc(((@abs(@abs(@row - @size-row/3) + @abs(@col - @size-col/3) - @size-col) / @size-col) - 1) * -1s);  
+      animation: scale ease-in 3s var(--rotation-delay) infinite alternate;
+
+      @keyframes scale {
+        0% {
+          transform: rotate(0.1turn);
+          background: hsl(0.1turn, 54%, 60%);
+        }
+      
+        18%  { 
+          transform: rotate(-0.2turn);
+          background: hsl(-0.2turn, 54%, 60%);
+        }
+      
+        38%  { 
+          transform: rotate(0.5turn);
+          background: hsl(0.5turn, 54%, 60%);
+        }
+      
+        42%  { 
+          transform: rotate(1.1turn);
+          background: hsl(1.1turn, 54%, 60%);
+        }
+
+        58%  { 
+          transform: rotate(0.8turn);
+          background: hsl(0.8, 54%, 60%);
+        }
+      
+        68%  { 
+          transform: rotate(0.6turn);
+          background: hsl(0.6turn, 54%, 60%);
+        }
+      
+        78%  { 
+          transform: rotate(1.01turn);
+          background: hsl(1.01turn, 54%, 60%);
+        }
+      
+        95% {
+          transform: rotate(0.5turn);
+          background: hsl(0.5turn, 54%, 60%);
+        }
+      
+        100% {
+          transform: rotate(0.5turn);
+          background: hsl(0.5turn, 54%, 60%);
+        }
+      }
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-74</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle>
+      :doodle{
+        @grid: 20 / 1920px;
+        grid-gap: 2px;
+      }
+      transform: rotate(@rand(360deg)) scale(@rand(.85));
+      border: 1px solid hsl(@rand(360), 55%, 55%);
+      animation: go @rand(4s,15s) ease-in-out infinite @rand(0.3s);
+      @keyframes go {
+        100%{
+          opacity: 0;
+          transform: translateY(-1000px);
+        }
+      }
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>  
+  </body>
+</html>

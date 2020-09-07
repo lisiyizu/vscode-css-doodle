@@ -1,0 +1,34 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-81</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: #000064;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle>
+      :doodle {
+        @grid: 100 / 75em 45em;
+        grid-gap: 15px;
+        overflow: hidden;
+      }
+      :after {
+        content: @pick('A','B','C');
+        color: @pick(#FEF5E9, #FECDB7, #FBA5B5, #39A5D9);
+        font-size: 1.5em;
+      }
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

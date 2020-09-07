@@ -1,0 +1,57 @@
+<!-- https://css-doodle.com -->
+<html>
+    <head>
+        <title>css3-doodle-90</title>
+        <style>
+            body  {
+                background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+            }
+        </style>
+    </head>
+    <body>
+        <css-doodle>
+            :container{
+                transform-style: preserve-3d;
+                transform: rotate3d(1, 1, 1, -120deg);
+            }
+            :doodle {
+                @grid: 70 x 1;
+                width:500px;
+                height:500px;
+                position:absolute;
+                top:50%;
+                left:50%;
+                transform: translate(0,-72%);
+            }
+            :before{
+                content:'';
+                position:absolute;
+                width:500px;
+                height:500px;
+                background:#fefefe;
+                transform-style: preserve-3d;
+                transform: rotate3d(1, 0, 0, 90deg) rotate3d(0, 1, 0, 160deg);
+                clip-path: polygon(0 100%, 25% 100%, 50% 100%,75% 100%, 100% 100%, 100% 98%, 75% 98%,50% 98%,25% 98%, 0 98%);
+                --delay: calc((
+                (@abs(@row - @size-row/2) / @size-row) ) * 3s) ;
+                bottom: 0;
+                margin-right: -250px;
+                animation-name: tri;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease-in-out;
+                animation-delay:var(--delay);
+            }
+  
+            @keyframes tri {
+                100%,0%{
+                    clip-path: polygon(0 100%, 25% 100%, 50% 100%,75% 100%, 100% 100%, 100% 98%, 75% 98%,50% 98%,25% 98%, 0 98%);
+                }
+                50%{
+                    clip-path: polygon(0 100%, 25% 100%, 50% 50%,75% 100%, 100% 100%, 100% 98%, 75% 98%,50% 48%,25% 98%, 0 98%);
+                }
+            }
+        </css-doodle>
+        <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    </body>
+</html>

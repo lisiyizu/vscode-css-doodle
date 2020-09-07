@@ -1,0 +1,60 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css3-doodle-86</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height:100%;
+        overflow: hidden;
+        background-color: #333357;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle>
+      :doodle { 
+        @grid: 12 / 50vh; 
+        perspective: 9em;
+        transform:rotate(-135deg);
+        mix-blend-mode:difference;
+      }
+      
+      @even {
+      @shape: clover,4;
+      margin:1%;
+      transform: scale(2) rotate(-60deg);
+    }
+      
+      @odd {
+      @shape: clover,4;
+      margin:-1%;
+      transform: scale(2) rotate(40deg);
+    }
+      
+      
+      --num: calc(@abs(
+        @abs(@row() - 7)
+      + @abs(@col() - 7) - 0) / 4
+    );
+      
+    
+      --delay: calc((@row() + @col() - 2) * -.1s); 
+      
+      background: hsla(calc(65 + 13 * @row() * @col()), @rand(80%), @rand(80%),calc(var(--num) / 2));
+      margin: .8vmin;
+    animation: r 8.4s cubic-bezier(.01,4.22,1,-11.33) var(--delay) infinite;
+      
+      @keyframes r { 
+        to { transform: rotate3d(1, -1, 0, -.5turn) } 
+      } 
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-9</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle click-to-update>
+      :doodle {
+        @grid: 1 / 100%;
+        position: absolute;
+        transform: scale(2);
+        background: @m200(
+          linear-gradient(
+            @p(to top, to bottom),
+            @p(#FFE7B8, #FEF6F0, #D0EEDA),
+            @p(@lp(), rgba(255, 255, 255, 0))
+          )
+          @ms2(@r(0, 100%)) / @r(2px) @r(50px)
+          no-repeat
+        );
+      }
+    </css-doodle>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-3</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle click-to-update>
+      :doodle {
+        @grid: 20 / 100vmax;
+        @min-size: 60em;
+        background: #12152D;
+      }
+      
+      :container {
+        // transform: rotate(-60deg) scale(1.2);
+      }
+      
+      margin: -.5px;
+      transform: rotate(@r(0deg, 360deg, 90));
+      border-width: 1px;
+      border-style: @p(double, dotted, dashed, solid);
+      border-color: transparent;
+    
+      @random {
+        border-top-color: @p(#60569e, #e6437d, #ebbf4d);
+      }
+      @random {
+        border-left-color: @p(#60569e, #e6437d, #ebbf4d);
+      }
+      @random {
+        border-width: @p(3px, 4px);
+        border-style: double;
+      }
+      @random {
+        border-radius: @p(
+          '0 0 0 100%', '100% 0 0 0', 0, 0
+        );
+      } 
+      :nth-child(19n):after {
+        content: '~~~';
+        color: transparent;
+        line-height: 0;
+        position: absolute;
+        transform: scale(@r(.5, .7)) rotate(@r(360deg));
+        text-decoration: line-through wavy 
+          @p(#60569e, #e6437d, #ebbf4d);
+      }
+      @random {
+        :after {
+          content: '';
+          background: @p(#60569e, #e6437d, #ebbf4d);
+          transform: rotate(@r(360deg));
+          @size: 30%;
+          @shape: @p(
+            circle, diamond, star, 
+            triangle, pentagon, rhombus
+          );
+        }
+      }  
+    </css-doodle>
+  </body>
+</html>

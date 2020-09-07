@@ -1,0 +1,43 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-60</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle click-to-update>
+      :doodle {
+        @grid: 1 / 100vmax;
+        @size: 1px;
+        filter: @svg-filter(
+          <svg>
+            <filter width="200%">
+              <feTurbulence baseFrequency="0.014"
+                            numOctaves="8"
+                            seed="@r(1000)" />
+              <feDisplacementMap in="SourceGraphic" scale="0">
+                <animate attributeName="scale"
+                    dur="15s"
+                    values="0;1000"
+                    fill="freeze" />
+              </feDisplacementMap>
+            </filter>
+          </svg>
+        );
+      }
+      box-shadow: @m(100,
+        @r(100vw) @r(100vh)
+        @r(5vmin, 45vmin) @r(20vmin)
+        @pick(#FFE45E, #DB504A,#2E5266)
+      );
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

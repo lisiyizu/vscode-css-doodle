@@ -1,0 +1,45 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-42</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+  
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle>
+      :doodle {
+        @grid: 11 / 100vmax;
+        background: #0a0c27;
+      }
+      --n: calc(
+          @abs(@abs(@row() - 6)
+        + @abs(@col() - 6) - 11) / 11
+      );
+      margin: -10%;
+      transform: rotate(45deg);
+      border: 1px solid;
+      border-color: hsla(
+        calc(var(--n) * 280 + 120), 60%, 68%,
+        var(--n)
+    
+      );
+      
+      @keyframes r { 
+        to { transform: rotate3d(1, -1, 0, -.5turn) } 
+      } 
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

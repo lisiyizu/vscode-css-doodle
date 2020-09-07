@@ -1,0 +1,63 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-32</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <!-- Background Image is From Paper CSS, which inspires me accomplishing this -->
+    <style>
+      html, body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background: url("https://www.getpapercss.com/img/geometry2.png");
+      }
+    
+      body {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle>
+      --pink: #d495b1;
+      --blue: #69aee5;
+      --border-color: rgba(27, 31, 35, 1);
+      --color: @p(var(--pink), var(--blue));
+    :doodle {
+      @grid: 5 / 70vmin;
+          overflow: hidden;
+    }
+    margin: 20%;
+    border: 3px solid var(--border-color);
+      border-radius: @repeat(4, @rand(45%, 55%));
+      background: @pick(
+          none,
+          linear-gradient(var(--color), @lp()),
+          linear-gradient(var(--pink) 47%, var(--border-color) 47%, var(--border-color) 53%, var(--blue) 53%),
+        linear-gradient(var(--pink) 29%, var(--border-color) 29%, var(--border-color) 35%, var(--blue) 35%, var(--blue) 64%, var(--border-color) 64%, var(--border-color) 70%, var(--pink) 70%),
+          linear-gradient(var(--blue), var(--blue) 29%, var(--border-color) 29%, var(--border-color) 35%, var(--pink) 35%, var(--pink) 64%, var(--border-color) 64%, var(--border-color) 70%, var(--blue) 70%, var(--blue) 100%),
+          linear-gradient(45deg, var(--pink) 48%, var(--border-color) 48%, var(--border-color) 52%, var(--blue) 52%),
+          @m(3, radial-gradient(circle at center, @pick-n(var(--pink), var(--border-color), var(--blue)) @pick-n(40%, 48%, 100%), rgba(0,0,0,0) @last-pick())),
+          @m(3, radial-gradient(circle at center, @pick-n(var(--blue), var(--border-color), var(--pink)) @pick-n(40%, 48%, 100%), rgba(0,0,0,0) @last-pick())),
+          @m(2, linear-gradient(@pick-n(45deg, -45deg), var(--pink) 48%, var(--border-color) 48%, var(--border-color) 52%, var(--blue) 52%)),
+          conic-gradient(from 90deg, transparent 12.5%, var(--pink) 12.5%, var(--pink) 37.5%, transparent 37.5%, transparent 62.5%, var(--blue) 62.5%, var(--blue) 87.5%, transparent 87.5%));
+      background-blend-mode: @p(color-burn,
+          color-dodge,
+          darken,
+          hard-light,
+          overlay,
+          screen);
+      transition: .15s ease all;
+      animation: rotation 30s linear infinite both;
+      @random {
+          animation-direction: reverse;
+      }
+      @keyframes rotation {
+          0% { transform: rotate(0deg) }
+          100% { transform: rotate(360deg) }
+      }
+    </css-doodle>
+  </body>
+</html>

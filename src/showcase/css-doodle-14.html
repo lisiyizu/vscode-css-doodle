@@ -1,0 +1,66 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-14</title>
+    <script src="https://unpkg.com/css-doodle@0.7.1/css-doodle.min.js"></script>
+    <style>
+      html {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #000064;
+      }
+
+      .doodle {
+        position: fixed;
+        z-index: -1;
+        animation: spin 100s infinite;
+      }
+
+      @keyframes spin {
+        from {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        to {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .doodle {
+          @grid: 25 / 100em;
+          grid-gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle grid="5" class="doodle" click-to-update>
+      :doodle {
+        @grid: 50/100em;
+        grid-gap: 30px;
+      }
+      background: white;
+      opacity: @r(-1, .2);
+      clip-path: polygon(51% 26%, 0% 100%, 100% 100%);
+      animation: flow @r(10s, 50s) infinite linear;
+          
+      @keyframes flow {
+        0%, 100%{
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0)   
+        }
+        50% {
+          -webkit-transform: translate3d(@r(-500%, 1000%), @r(-500%, 1000%), 0);  
+          transform: translate3d(@r(-500%, 1000%), @r(-500%, 1000%), 0);       
+        }
+      }
+    </css-doodle>
+  </body>
+</html>

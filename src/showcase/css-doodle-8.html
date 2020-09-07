@@ -1,0 +1,79 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-8</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        background: #000;
+        overflow: hidden;
+        margin: 0;
+      }
+
+      :root {
+        --size: calc(100vw * 1.05);
+      }
+
+      @media only screen and (max-width: 980px) {
+        :root {
+          --size: calc(100vw * 1.5);
+        }
+      }
+
+      @media only screen and (max-width: 768px) {
+        :root {
+          --size: calc(100vw * 2);
+        }
+      }
+
+      @media only screen and (max-width: 640px) {
+        :root {
+          --size: calc(100vw * 3);
+        }
+      }
+
+      @media only screen and (max-width: 460px) {
+        :root {
+          --size: 150vmax;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle click-to-update>
+      :doodle {
+        @grid: 32 / var(--size);
+        overflow: hidden;
+      }
+    
+      :container {
+      transform: scale(1.2);
+    
+      // if you want to do rotation please try:
+      // transform: scale(1.5) rotate(-15deg);
+      }
+    
+      @shape: hexagon;
+      background: @p(#f90, #f60);
+      :hover {
+        background: #fff;
+      }
+    
+      --x: calc((@col() - 1) * -8%);
+      --y: calc((@row() - 1) * -20%);
+      --xx: 0;
+    
+      @row(even) {
+      --xx: 47%;
+      }
+    
+      transform:
+      translate(var(--x), var(--y))
+      translateX(var(--xx));
+    </css-doodle>
+  </body>
+
+</html>

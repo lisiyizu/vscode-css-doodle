@@ -1,0 +1,44 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-28</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background: #270F34;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center
+      }
+
+      css-doodle {
+        width: 500px;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle grid="8" click-to-update>
+      :doodle {
+        @grid: 8 / 90%;
+        @shape: circle;
+      }
+      
+      transition: .2s @r(.6s);
+      border-radius: @pick(100% 0, 0 100%);
+      
+      will-change: transform;
+      transform: scale(@r(.25, 1.25));
+      
+      background: hsla(
+        calc(240 - 6 * @row * @col),
+        70%, 68%, @r.8
+      );
+    </css-doodle>
+  </body>
+</html>

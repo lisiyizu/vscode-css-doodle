@@ -1,0 +1,50 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-41</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+  
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+      }
+    </style>
+    <!-- Illustration Based on "Login" dribble shot by Divan Raj https://dribbble.com/shots/5449363-Login/ 
+    Credits : css-doodle.com
+    -->
+  </head>
+  <body>
+    <css-doodle>
+      :doodle {
+        @grid: 3x2 / 500px;
+        background: radial-gradient(#5A8DEA,#7F6DEE);
+        overflow: hidden;
+        min-width: 500px;
+      }
+      @shape: circle;
+      background: linear-gradient(#01D5DF,#F301FD);
+      @nth(1) { @size: 500px; @place-cell: 85% 10%; }
+      @nth(2) { @size: 430px; @place-cell: 60% 60%; }
+      @nth(3) { @size: 200px; @place-cell: 85% 30%; }
+      @nth(4) { @size: 300px; @place-cell: 15% 84%; }
+      @nth(5) { 
+        @size: 276px; 
+        @place-cell: 95% 55%;
+        background: linear-gradient(200deg,#01D5DF,#F301FD);
+      }
+      @nth(6) { 
+        @size: 550px; 
+        @place-cell: 25% 25%;
+        background: linear-gradient(#4015a5,#d729de,#FECA72);
+      }
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

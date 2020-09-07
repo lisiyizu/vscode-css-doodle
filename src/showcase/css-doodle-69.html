@@ -1,0 +1,50 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-69</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: serif;
+      }
+  
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <style>
+      css-doodle {
+        --rule: (
+            :doodle {
+              @grid: 1x60;
+              width: 90vmin;
+              height: 90vmin;
+              overflow: hidden;
+              background: #0B0B0E;
+            }
+          
+            width: 300%;
+            height: 14.5vmin;
+            background: teal;
+            transform: rotate(@rand(360deg));
+            @place-cell: @rand(100%) @rand(100%);
+            border: 1vmin solid #0B0B0E;
+          
+          background: repeating-linear-gradient(#fff, #fff .25vmin, #0B0B0E .25vmin, #0B0B0E 2vmin)
+        );
+      }   
+    </style>
+    <css-doodle use="var(--rule)" click-to-update></css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-55</title>
+    <style>
+      html,body{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background-color: #000064;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <style>
+      css-doodle {
+        --color: @p(#51eaea, #fffde1, #ff9d76, #FB3569);
+        --rule: (
+          :doodle {
+            @grid: 2 / 10vmin;
+            --deg: @pick(240deg, 360deg);
+          }
+          :container {
+            perspective: 20vmin;
+          }
+          :after, :before {
+            content: '';
+            background: var(--color); 
+            @place-cell: @r(100%) @r(100%);
+            @size: @r(10px);
+            @shape: star;
+          }
+        
+          @place-cell: center;
+          @size: 100%;
+        
+          box-shadow: @m2(0 0 50px var(--color));
+          background: @m100(
+            radial-gradient(var(--color) 50%, transparent 0) 
+            @r(-20%, 120%) @r(-20%, 100%) / 1px 1px
+            no-repeat
+          );
+        
+          will-change: transform, opacity;
+          animation: scale-up 12s linear infinite;
+          animation-delay: calc(-12s / @size() * @i());
+    
+          @keyframes scale-up {
+            0%, 95.01%, 100% {
+              transform: translateZ(0) rotate(0);
+              opacity: 0;
+            }
+            10% { 
+              opacity: 1; 
+            }
+            95% {
+              transform: 
+                translateZ(35vmin) rotateZ(@var(--deg));
+            }
+          }
+        )
+      }
+    </style>
+    <css-doodle use="var(--rule)"></css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>    
+  </body>
+</html>

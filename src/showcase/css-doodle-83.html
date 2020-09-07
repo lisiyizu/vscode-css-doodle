@@ -1,0 +1,45 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css3-doodle-83</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle>
+      :doodle { 
+        @grid: 10 / 100vmax; 
+      }
+      @size: @rand(10,100)px; 
+      background:url(https://powerkaifu.github.io/CSS-Doodle/images/@pick(1,2,3).png); 
+      background-size:contain; 
+      background-repeat:no-repeat;
+      width:@rand(8,20)px; 
+      transform:rotate(@rand(0, 360)deg ); 
+      position:absolute; 
+      top:-10%; 
+      left:@rand(0,100)%; 
+      animation:sakura 18s infinite @rand(0, 50)s; 
+      @keyframes sakura { 
+        0% { 
+          top:0; 
+          left:@rand(-20,100)%;
+          transform:rotate(@rand(1080,1800)deg); 
+        } 
+        100% { 
+          top:100%; 
+          left:@rand(0,110)%; 
+          transform:rotate(@rand(3600,7200)deg)); 
+        } 
+      }
+     </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

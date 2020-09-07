@@ -1,0 +1,341 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-13</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
+
+      body {
+        background: #0a0c27;
+        font-family: verdana;
+        display: grid;
+        grid-template-columns: repeat(4, 25vmin);
+        grid-template-rows: repeat(3, 25vmin);
+        grid-gap: 1vmin;
+        align-content: center;
+        justify-content: center;
+      }
+
+      css-doodle {
+        overflow: hidden;
+        cursor: pointer;
+        --hue: 5;
+      }
+
+      p {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 1em;
+        color: rgba(165, 170, 243, .2);
+        font-size: .65em;
+      }
+
+      p a {
+        color: rgba(165, 170, 243, .4);
+      }
+
+      p a:hover {
+        color: rgba(165, 170, 243, .6);
+      }
+
+      @media screen and (max-height: 420px) {
+        p {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle #1>
+      :doodle {
+      @grid: 12x1 / 100%;
+      --deg: @rand(3deg, 7deg);
+      }
+      --start: calc(@index() * var(--deg));
+
+      transition: .2s ease @rand(.6s);
+      will-change: transform;
+      transform: rotate(calc(var(--start)));
+
+      @place-cell: center;
+      @size: calc(@index() * 9%);
+
+      border: 1px solid hsla(
+      calc(5 + 10 * @index()), 90%, 75%,
+      @rand(.8)
+      );
+    </css-doodle>
+
+    <css-doodle #2>
+      :doodle {
+      @grid: 5x8 / 100%;
+      }
+
+      @size: 210%;
+      @place-cell: 110% -40%;
+
+      transition: .2s ease @rand(.6s);
+      will-change: transform;
+
+      border-radius: @rand(50%, 60%) 80%;
+      transform: translate(
+      calc(50% * @cos(@PI() / 20 * @index())),
+      calc(50% * @sin(@PI() / 20 * @index()))
+      );
+
+      border: 1px solid hsla(
+      calc(5 + @col() * 20), 90%, 75%,
+      @rand(.3, .8)
+      );
+    </css-doodle>
+
+    <css-doodle #3>
+      :doodle {
+      @grid: 18x1 / 100%;
+      --deg: @rand(16deg, 24deg);
+      }
+
+      transition: @rand(.3s, .6s, .01) ease @rand(.6s);
+      will-change: transform;
+
+      --color: hsla(
+      calc(5 + 5 * @index()), 90%, 75%,
+      @rand(.3, .8)
+      );
+
+      @place-cell: 110% center;
+      @size: 120%;
+
+      border-radius: 50%;
+      border: 1px solid var(--color);
+      transform: rotate(calc(@index() * var(--deg)));
+      transform-origin: 0 center;
+    </css-doodle>
+
+    <css-doodle #4>
+      :doodle {
+      @grid: 50x1 / 100%;
+      }
+
+      transition: @rand(.3s, .8s, .01) ease @rand(.6s);
+      will-change: transform;
+
+      @place-cell: center;
+      @size: calc(@index() * 3%);
+
+      transform: rotate(@rand(360deg));
+
+      border-radius: 50%;
+      border: 1px solid transparent;
+      border-top-color: hsla(
+      calc(5 + 4 * @index()), 90%, 75%,
+      @rand(.8)
+      );
+    </css-doodle>
+
+    <css-doodle #5>
+      :doodle {
+      @grid: 5 / 100%;
+      }
+
+      transition: .2s ease @rand(.6s);
+      will-change: transform;
+
+      margin: 2%;
+      @even { margin: 10%; }
+
+      border-radius: @pick(0% 100%, 100% 0%);
+      border: 1px solid hsla(
+      calc(5 + 6 * @row() * @col()),
+      90%, 75%,
+      @rand(.8)
+      );
+
+      transform: translate(@pick(
+      -10%, 10%, 10%, -10%
+      ));
+    </css-doodle>
+
+    <css-doodle #6>
+      :doodle {
+      @grid: 6 / 100%;
+      }
+
+      --color: hsla(
+      calc(5 + 5 * @index()), 90%, 75%,
+      @rand(.8)
+      );
+
+      transition: .2s ease @rand(.6s);
+      will-change: transform;
+      margin: 2px;
+      border-radius: 50%;
+      border-left: 1px solid var(--color);
+      border-top: 1px solid var(--color);
+
+      @row(even) { --x: 20%; }
+      @row(odd) { --x: -20%; }
+      @col(even) { --y: -20%; }
+      @col(odd) { --y: 20%; }
+
+      transform:
+      translate(var(--x), var(--y))
+      rotate(@rand(360deg));
+    </css-doodle>
+
+    <css-doodle #7>
+      :doodle {
+      @grid: 5 / 100%;
+      }
+
+      transition: .2s ease @rand(.6s);
+      will-change: transform;
+
+      border-radius: 50%;
+      border: @rand(10px) double hsla(
+      calc(5 + 4 * @index()), 90%, 75%,
+      @rand(.8)
+      );
+
+      @row(even) { --x: 25%; }
+      @row(odd) { --x: -25%; }
+      @col(even) { --y: -10%; }
+      @col(odd) { --y: 10%; }
+
+      transform:
+      translate(var(--x), var(--y))
+      rotate(@rand(360deg))
+      scale(@rand(.4, .95, .01));
+    </css-doodle>
+
+    <css-doodle #8>
+      :doodle {
+      @grid: 7 / 100%;
+      }
+
+      transition: .2s ease @rand(.6s);
+      will-change: transform;
+
+      border: 1px solid hsla(
+      calc(5 + 4 * @index()), 90%, 75%,
+      @rand(.8)
+      );
+
+      @size: 30% 100%;
+      @row(even) { --x: 100%; }
+      @row(odd) { --x: -0%; }
+      @col(even) { --y: -20%; }
+      @col(odd) { --y: 20%; }
+
+      transform:
+      translate(var(--x) , var(--y))
+      rotate(@rand(360deg))
+      scale(@rand(.5, .95, .01));
+    </css-doodle>
+
+    <css-doodle #9>
+      :doodle {
+      @grid: 5 / 100%;
+      }
+
+      --n: calc(
+      @abs(@abs(@row() - 3)
+      + @abs(@col() - 3) - 5) / 5
+      );
+
+      margin: -10%;
+      transition: .2s ease @rand(.6s);
+      will-change: transform;
+      transform:
+      scale(calc(1.8 * var(--n)))
+      rotate(37deg);
+
+      border: 1px solid hsla(
+      calc(5 + 5 * @index()), 90%, 75%,
+      @rand(.3, .8)
+      );
+    </css-doodle>
+
+    <css-doodle #10>
+      :doodle {
+      @grid: 9 / 100%;
+      }
+
+      --color: hsla(
+      calc(5 + 2 * @index()), 90%, 75%,
+      @rand(.8)
+      );
+
+      transition: .2s ease @rand(.6s);
+      will-change: transform;
+
+      border-top: 1px solid var(--color);
+      border-left: 1px solid var(--color);
+      margin: -.5px;
+
+      transform: translate(-25%, -20%);
+      @even {
+      transform: translate(115%, 30%);
+      }
+    </css-doodle>
+
+    <css-doodle #11>
+      :doodle {
+      @grid: 20x1 / 100%;
+      }
+
+      @place-cell: -5% -5%;
+      @size: calc(@row() * 8% + @rand(-2%, 2%));
+
+      transition: .2s ease @rand(.6s);
+      will-change: transform;
+      transform: rotate(45deg) translateX(50%);
+
+      border-radius: 50%;
+      border: @rand(3px) dashed hsla(
+      calc(5 + 10 * @index()), 90%, 75%,
+      @rand(.8)
+      );
+    </css-doodle>
+
+    <css-doodle #12>
+      :doodle {
+      @grid: 10 / 100%;
+      }
+
+      transition: .2s ease @rand(.6s);
+      will-change: transform;
+
+      width: @rand(200%);
+      transform:
+      rotate(-45deg)
+      translateY(@rand(-50%, 50%));
+
+      border-top: 1px solid hsla(
+      calc(5 + 2 * @index()), 90%, 75%,
+      @rand(.8)
+      );
+    </css-doodle>
+    <p>
+      Build with
+      <a href="http://yuanchuan.name/css-doodle/" target="_blank">
+        css-doodle
+      </a>
+    </p>
+    <script>
+      document.body.addEventListener('click', update);
+      document.body.addEventListener('mouseover', update);
+      function update(e) {
+        if (e.target.update) {
+          e.target.update();
+        } 
+      }
+    </script>
+  </body>
+</html>

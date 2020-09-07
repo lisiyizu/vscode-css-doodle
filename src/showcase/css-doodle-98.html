@@ -1,0 +1,80 @@
+<!-- https://css-doodle.com -->
+<html>
+    <head>
+        <title>css3-doodle-98</title>
+        <style>
+            html,body {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background:black;
+            }
+        </style>
+    </head>
+    <body>
+        <css-doodle click-to-update>
+            :doodle {
+                margin: auto;
+                @grid: 6x6 / 100vmin;
+                --radius: @pd(0, 20%, 50%);
+            }
+            :container {
+                transform: scale(1.21);
+            }
+            transform: scale(1.6) rotate(-45deg);
+            border: .15vmin solid;
+            border-top-color: #E1B1C2;
+            border-right-color: #5ABBE6;
+            border-bottom-color: #E7CC4A;
+            border-left-color: #fff;
+            will-change: border-radius;
+            transition: .3s ease border-radius;
+            border-radius: var(--radius);
+            border-color: currentColor;
+            color: hsla(calc(0 - 12 * @row() * @col()), 70%, 68%, .6);
+            ::before, ::after {
+                content: "";
+                position: absolute;
+                will-change: transform;
+                transition: .3s ease all @r(0, .2s);
+            }
+            ::before {
+                top: 79%;
+                left: 34%;
+                width: 5.08vmin;
+                height: 5.08vmin;
+                color: inherit;
+                background-image: @m(4, (linear-gradient(calc(45deg * (@n() - 1)), transparent calc(50% - .06vmin), currentColor calc(50% - .06vmin), currentColor calc(50% + .06vmin), transparent calc(50% + .06vmin))));
+                border: .12vmin solid currentColor;
+                border-radius: .2vmin;
+                transform: rotate(@pd(45deg, 90deg));
+                opacity: .7;
+            }
+            ::after {
+                top: 50%;
+                left: 50%;
+                @size: 1.1vmin;
+                background-color: currentColor;
+                border-radius: .1vmin;
+                background-size: 100% 50%;
+                background-position: 0 0, 99% 99%;
+                background-repeat: no-repeat;
+                transform: translate(-50%, -50%) rotate(@pd(45deg, 90deg));
+            }
+            @col(1) {
+                border-top-color: transparent;
+                border-left-color: transparent;
+            }
+            @col(6) {
+                border-right-color: transparent;
+                border-bottom-color: transparent;
+                ::before {
+                    display: none;
+                }
+            }
+        </css-doodle>
+        <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    </body>
+</html>

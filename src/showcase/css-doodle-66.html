@@ -1,0 +1,67 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-66</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: serif;
+    }
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    css-doodle {
+        --rule: (
+          :doodle {
+            @grid: 30/100vmax;
+          }
+          background-color: @pick(#ccc);
+          :container {
+            grid-gap: 1px;
+          }
+          :after {
+            content: @pick(👨🏻‍💻, 👩🏻‍💻, 👩🏻‍💼, 👨🏻‍💼, 👩🏻‍⚖️, 🎅🏻, 👸🏻, 🙅🏻, 🤦🏻‍♀️, 👨🏻‍⚖️, 👩🏻‍🔧, 👨🏻‍🔧, 👮🏻‍♀️, 👮🏻, 👷🏻‍♀️, 👷🏻, 💂🏻‍♀️, 🕵🏻‍♀️, 🕵🏻, 👩🏻‍⚕️, 👨🏻‍⚕️, 👩🏻‍🌾, 👨🏻‍🌾, 👩🏻‍🍳, 👨🏻‍🍳, 👩🏻‍🎓, 👨🏻‍🎓,1, 2, 3, 4, 💣, ⛳, "''", "''", "''", "''", "''", "''");
+            font-size: 20px;
+            font-weight: 800;
+            color: @pick(red, green, blue);
+          }
+        ) 
+      }
+      css-doodle {
+        cursor: pointer;
+      }
+      @media(max-width: 576px){
+        css-doodle {
+          --rule: (
+            :doodle {
+              @grid: 20/100vmax;
+            }
+            background-color: @pick(#ccc);
+            :container {
+              grid-gap: 1px;
+            }
+            :after {
+              content: @pick(👨🏻‍💻, 👩🏻‍💻, 👩🏻‍💼, 👨🏻‍💼, 👩🏻‍⚖️, 🎅🏻, 👸🏻, 🙅🏻, 🤦🏻‍♀️, 👨🏻‍⚖️, 👩🏻‍🔧, 👨🏻‍🔧, 👮🏻‍♀️, 👮🏻, 👷🏻‍♀️, 👷🏻, 💂🏻‍♀️, 🕵🏻‍♀️, 🕵🏻, 👩🏻‍⚕️, 👨🏻‍⚕️, 👩🏻‍🌾, 👨🏻‍🌾, 👩🏻‍🍳, 👨🏻‍🍳, 👩🏻‍🎓, 👨🏻‍🎓,1, 2, 3, 4, 💣, ⛳, "''", "''", "''", "''", "''", "''");
+              font-size: 20px;
+              font-weight: 800;
+              color: @pick(red, green, blue);
+            }
+          )
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle class="wrapper" use="var(--rule)" click-to-update></css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

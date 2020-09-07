@@ -1,0 +1,39 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-36</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle>
+      :doodle{
+        @grid: 25 / 100vmax;
+        background-color: #000064;
+      }
+      @even{
+        @shape: @pick('triangle','circle','heart','star','hypocycloid 4','clover 5','cross','bud 10');
+      background: rgb(@r(40,250),@r(0,150),@r(10,100));
+      opacity: @r(0,1);
+      transform: scale(@r(0,1));
+      animation: blink @r(1s,3s) ease-in-out infinite alternate;
+      animation-delay: @r(0s,5S);
+      }
+      @keyframes blink {
+        to{
+          transform: scale(0);
+        }
+      }
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

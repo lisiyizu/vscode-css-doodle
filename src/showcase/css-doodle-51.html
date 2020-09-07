@@ -1,0 +1,52 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-51</title>
+    <style>
+      html{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      body {
+        width: 400px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle>
+      :doodle {
+        @grid: 8 / 90%;
+        @shape: circle;
+      }
+    
+      :container {
+        grid-gap: 3px;
+        transform: rotate(45deg) scale(1.5);
+      }
+    
+      @nth(n) {
+        @shape: bud,3;
+        transition: all .3s ease-in-out;
+        cursor: pointer;
+    
+        :hover {
+          @shape: bud,4;
+          transform: rotate(-45deg) scale(1.5);
+        }
+      }
+    
+      background: hsla(
+        calc(240 - 6 * @row() * @col()),
+        70%, 68%, @r(.8)
+      );
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    
+  </body>
+</html>

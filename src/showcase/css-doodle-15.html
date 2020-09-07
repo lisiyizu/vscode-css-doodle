@@ -1,0 +1,30 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-15</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle click-to-update>
+      :doodle {
+          @grid: 10x10;
+          @size: 100vmax;
+          grid-gap: 1px;
+      }
+      background-color: hsla(@r(360), 85%, @r(70%, 90%), @r(.9));
+      transform: scale(@rand(.1,.9));
+    </css-doodle>
+  </body>
+</html>

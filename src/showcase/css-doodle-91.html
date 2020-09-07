@@ -1,0 +1,34 @@
+<!-- https://css-doodle.com -->
+<html>
+    <head>
+        <title>css3-doodle-91</title>
+        <style>
+            html,body {
+                margin: 0;
+                padding: 0;
+            }
+            .doodle {
+                position: fixed;
+                z-index: -1;
+            }
+
+            .container {
+                width: 75%;
+                background: #fff;
+                margin: 2rem auto;
+                padding: 5rem;
+                box-shadow: 0 0 50px 0 rgba(0, 0, 0, .2);
+            }
+        </style>
+    </head>
+    <body>
+        <css-doodle>
+        :doodle {
+            @grid: 25 / 100vmax;
+        }
+        --hue: calc(100 + .5 * @row() * @col());
+        background: hsla(var(--hue), 50%, 70%, @r(.1, .9));
+        </css-doodle>
+        <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    </body>
+</html>

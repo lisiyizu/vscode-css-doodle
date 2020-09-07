@@ -1,0 +1,92 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-71</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: serif;
+      }
+  
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(#e4d8fb, #3F51B5);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle> 
+      :doodle {
+        @grid: 126x1 / 650px;
+        @shape: drop;
+        background:
+          @m2(radial-gradient(#fff 50%, transparent calc(50% + 1px))
+            @pn(200px 478px, 192px 469px) / @pn(80px 32px, 64px 32px)
+            no-repeat),
+          linear-gradient(10deg, #fff 26.5%, transparent calc(26.5% + 1px)),
+          linear-gradient(205deg, #5256bd 56%, #954ccc);
+      }
+
+      offset-path: path('
+        M @r650 600
+        Q @calc(@lr + @p(@r(-300, -20), @r(20, 300), @r(±300))) @r650
+          @lr5 0
+      ');
+
+      position: absolute;
+      will-change: offset-distance;
+      animation: move @r(12s, 30s) infinite linear;
+      animation-delay: -@r(25s);
+      
+      @keyframes move {
+        0% { offset-distance: 100% }
+        20%, 80% { opacity: 1 }
+        100% { offset-distance: 0 opacity: 0 }
+      }
+
+      :after, :before {
+        color: transparent;
+        text-shadow: 0 0 0 #fff;
+      }
+
+      :after {
+        content: @p([❉❄❅❆...❄️]);
+        font-size: @r(5px, 15px);
+      }	
+      
+      @nth(4-n) {
+        animation: none;
+        offset-path: none;
+        left: @pn(352px, 372px, 416px, 156px);
+        top: @pn(416px, 437px, 460px, 434px);
+        transform: @pn(
+          scaleY(4), scaleX(.75) scaleY(1.55), none, scaleY(1.5)
+        );
+      }
+      @nth(3-n) {
+        :after {
+          content: '🌲';
+          font-size: 80px; 
+        }
+      }
+      @nth(1) {
+        filter: blur(28px);
+      }
+      @nth(4) {
+        :after {
+          content: '🌳';
+          font-size: 48px; 
+        }
+      }
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

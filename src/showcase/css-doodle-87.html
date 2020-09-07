@@ -1,0 +1,50 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css3-doodle-87</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #333357;
+      }
+      css-doodle {
+        --flags: (
+          :doodle { @grid: 1x28; }
+          clip-path: polygon(0 0, 100% 0, 50% 1%);
+          background-color: hsla(
+            calc(3.5 * @i() + 180), 80%, 70%, @r(.8)
+          );
+          animation: ani 1s cubic-bezier(.175, .885, .32, 1.275);
+          animation-delay: @r(.1s, 1.5s);
+          animation-fill-mode: forwards;
+          @keyframes ani {
+            to {
+              clip-path: polygon(
+                0 0, 100% 0,
+                @repeat(2, @r(20%, 80%, .1))
+              );
+            }
+          }
+        );
+      }
+      css-doodle:not(:defined) {
+        visibility: hidden;
+      }
+      css-doodle[use*="flags"] {
+        display: block;
+        width: 100%;
+        height: 20vh;
+        max-height: 10em;
+        overflow: hidden;
+        min-width: 900px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle use="var(--flags)"></css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

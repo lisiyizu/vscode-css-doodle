@@ -1,0 +1,62 @@
+<!-- https://css-doodle.com -->
+<html>
+    <head>
+        <title>css3-doodle-99</title>
+        <style>
+            :root {
+                --bg: #000064;
+            }
+
+            html, body { 
+                height: 100%; 
+                margin: 0; 
+            }
+
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: var(--bg);
+            }
+        </style>
+    </head>
+    <body>
+        <css-doodle>
+            :doodle {
+                @grid: 18 / 61.8vmin;
+            }
+            
+            overflow: hidden;
+            @size: calc(100% + 1px);
+            
+            // comment this to make same cell size.
+            transform: translate(-50%, -50%) scale(@r(1, 1.5, .01));
+            
+            :after {
+                content: '';
+                @size: calc(100% - 2px);
+                background: var(--bg);
+                z-index: 1;
+            }
+            
+            :before {
+                content: '';
+                position: absolute;
+                @size: 200%;
+                background: conic-gradient(
+                    @p(#78E7D4, #E3383F, #FDFFFC, #F2A341) @r(10%, 40%),
+                    transparent 0
+                );
+                transform-style: preserve-3d;
+                animation: cycle @r(1s, 4s, .1) linear infinite;
+                animation-delay: calc(@r(@size()) * -1s); 
+                z-index: 0;
+            }
+            
+            @keyframes cycle {
+                to { transform: rotate(@p(1turn, -1turn)); }
+            } 
+        </css-doodle>
+        <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    </body>
+</html>

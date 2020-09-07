@@ -1,0 +1,46 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-24</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      body {
+        font: 900 100px/0.65 system-ui;
+        margin: 0;
+        overflow: hidden;
+        width: 110%;
+      }
+  
+      span {
+        display: inline-block;
+        text-indent: -2rem;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle click-to-update> 
+      :doodle {
+        @grid: 15 / 100vmax;
+        background: #fff;
+        cursor: pointer;
+      }
+  
+      :doodle(:hover) {
+        --s: 1;
+      }
+  
+      :after {
+        content: @pick(css, doodle);
+        font-size: 4vmax;
+        <!-- color: hsla(@r(360), 100%, @r(70%, 90%), @r(.9)); -->
+        color: hsla(@rand(360), 70%, 70%, @rand(.9)); 
+        transform: scale(@rand(.2, .9));
+      }
+  
+      transition: .5s cubic-bezier(.175, .885, .32, 1.275);
+      transition-delay: @rand(650ms);
+      transform: translateY(calc(var(--s) * 100%)) rotate(calc(var(--s) * 360deg));
+    </css-doodle>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-61</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle click-to-update>
+      :doodle {
+        @grid: 2 / 70vmin;
+        background: #fff;
+        overflow: hidden;
+        border: 2vmin solid #fff;
+        box-shadow: 0 .5vmin 1vmin rgba(125, 125, 125, .2),
+              0 2vmin 1vmin -1vmin rgba(125, 125, 125, .2);
+      }
+  
+      @at(1,1) {
+        :after {
+        content: "H"
+      }
+      }
+  
+      @at(2,2) {
+        :after {
+          content: "T"
+        }
+      }
+  
+      @at(1,2) {
+        :after {
+          content: "M"
+        }
+      }
+  
+      @at(2,1) {
+        :after {
+          content: "L"
+        }
+      }
+  
+  
+      :after {
+        --s: .2vmin;
+        --c: @p(
+        (53, 35, 75),
+        (92, 59, 111),
+        (216, 76, 115),
+        (255, 132, 132)
+        );
+    
+        position: absolute;
+        font-size: 30vmin;
+        color: rgb(var(--c));
+        font-weight: bold;
+        text-stroke: var(--s) #fff;
+        text-shadow:
+        @m(10, (
+        calc(@n() * var(--s))
+        calc(@n() * var(--s))
+        0 @pn(currentColor, #fff)
+        )),
+        @m(10, (
+        calc((@n() + 10) * var(--s))
+        calc((@n() + 10) * var(--s))
+        0 @pn(rgba(var(--c), .1), #fff)
+        ));
+      }
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  
+  </body>
+</html>

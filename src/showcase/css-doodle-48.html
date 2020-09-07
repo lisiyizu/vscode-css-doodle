@@ -1,0 +1,117 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-48</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background: #000;
+        display: grid;
+        place-items: center;
+      }
+  
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        --s: 30vw;
+      }
+  
+      li {
+        background: #110d15;
+        width: var(--s);
+        height: var(--s);
+        max-height: 400px;
+        max-width: 400px;
+        margin: .5vmin;
+      }
+  
+      @media screen and (max-width: 400px) {
+        ul {
+          flex-direction: column;
+          --s: 30vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <css-doodle click-to-update>
+          :doodle {
+          @grid: 5x1 / 100%;
+          mask-image: @svg(
+          <svg viewBox="0 0 10 10">
+            <text font-size="9" x=".5" y="8.5">🐯</text>
+          </svg>
+          );
+          }
+          @place-cell: center;
+          @size: 100%;
+          @random {
+          filter: drop-shadow(0 0 2px #fff);
+          }
+          background: @m500(
+          radial-gradient(
+          @p(#5a5e5e, #6EC729, #a6db0f, #ffffff) 50%,
+          transparent 0
+          )
+          @r(100%) @r(100%) / @r(5px) @lr
+          no-repeat
+          );
+        </css-doodle>
+      </li>
+  
+      <li>
+        <css-doodle click-to-update>
+          :doodle {
+          @grid: 50x1 / 100%;
+          mask-image: @svg(
+          <svg viewBox="0 0 10 10">
+            <text font-size="9" x=".5" y="8.5">🍎</text>
+          </svg>
+          );
+          }
+          @place-cell: @r(100%) @r(100%);
+          :after {
+          content: '🐶';
+          font-size: @r(18px);
+          color: transparent;
+          text-shadow: @m10(
+          @r(±50px) @r(±50px) 0 @p(#5a5e5e, #6EC729, #a6db0f, #ffffff)
+          );
+          }
+        </css-doodle>
+      </li>
+  
+      <li>
+        <css-doodle>
+          :doodle {
+            @grid: 32 / 100%;
+            mask-image: @svg(
+            <svg viewBox="0 0 10 10">
+              <text font-size="9" x=".5" y="8.5">👍</text></text></text>
+            </svg>
+            );
+          }
+          border-radius: 50%;
+          background: @p(#fff, #5a5e5e, #6EC729, #a6db0f, transparent);
+          --t: scale(@r(.1, .4)) scaleY(4);
+          transform: @var(--t);
+          @keyframes f {
+            from { transform: var(--t) translateY(-400%); }
+            to { transform: var(--t) translateY(400%); }
+          }
+          @random(.2) {
+            animation: f @r(3s, 8s) linear infinite;
+            animation-delay: -@r(10s);
+          }
+        </css-doodle>
+      </li>
+    </ul>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

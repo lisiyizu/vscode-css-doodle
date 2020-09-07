@@ -1,0 +1,56 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-26</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      body {
+        background: radial-gradient(30vmin circle at 85% 17%, #696758 0%, 80%, #C5BC8E 97%, #010007 100%);
+        overflow: hidden;
+        filter: sepia(70%);
+  
+        /*disable css filters for firefox (choppy animations):*/
+        @-moz-document url-prefix() {
+          filter: none;
+        }
+  
+        background-attachment: local;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle>
+      :doodle {
+        @grid:15 / 100%;
+        width:100vw;
+        height:100vh;
+      }
+      :container {
+        transform-style:flat;
+      }
+      /*snowing cats and dogs*/
+      :after {
+        content:@p(🐕,🐕,🐕,🐶,🐶,🐶,🐩,🐩,🐺,🐺,🐱,😸 ,😹,😻,😾,😿,🙀,🦁,🐆,🐅,🐈);
+      }
+      /*and some barnyard friends*/
+      @random(.13) {
+        :after {
+          content:@p(🐀,🐁,🐂,🐃,🐄,🐅,🐆,🐇,🐈,🐉,🐊,🐋,🐌,🐍,🐎,🐏,🐐,🐑,🐒,🐓,🐔,🐕,🐖,🐗,🐘,🐙,🐚,🐛,🐜,🐝,🐞,🐟,🐠,🐡,🐢,🐣,🐤,🐥,🐦,🐧,🐨,🐩,🐪,🐫,🐬,🐭,🐮,🐯,🐰,🐲,🐳,🐴,🐵,🐶,🐷,🐸,🐹,🐺,🐻,🐼,🐽,🕷,🙈,🙉,🙊,🦀,🦁,🦂,🦃,🦄,🦅,🦆,🦇,🦈,🦉,🦊,🦋,🦌,🦍,🦎,🦏,🦐,🦑,🦒,🦓,🦔,🦕,🦖,🦗,🦘,🦙,🦚,🦛,🦜,🦝,🦞,🦟,🦠,🦡,🦢);
+        }
+      }
+      font-size:@p(3vmin, 4vmin, 1.75em);
+      text-shadow:2px 2px white;
+      animation: snow @r(12s,30s) infinite linear;
+      font-size:@p(1em,1vmin,2vmin,3vmin,1.5em);
+      will-change:transform;
+      @keyframes snow {
+        0% {
+          transform: perspective(@r(300px)) translateZ(@r(-500px,-200px)) translateY(-400vh) translateX(@r(-20px, 20px));
+        }
+        100% {
+          transform:translateY(100vh) translateX(calc(.12*@index()*@p(-2vmin,2vmin))) rotate(@r(-720deg, 720deg));
+        }
+      }
+  </css-doodle>
+  </body>
+</html>

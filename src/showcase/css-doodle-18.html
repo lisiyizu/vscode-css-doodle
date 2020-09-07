@@ -1,0 +1,60 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-18</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0; 
+      }
+      body:after {
+        content: 'click to update';
+        font-size: .8em;
+        color: rgba(0, 0, 0, .3);
+        position: fixed;
+        width: 100%;
+        bottom: 1em;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle id="doodle" click-to-update>
+      :doodle {
+        @size: 1px;
+        overflow: hidden;
+        transform: translate(-100%, -100%);
+        border-radius: 50%;
+        filter: url(#filter);
+        box-shadow: @m100(
+          @r(100vw) @r(100vh) @r(20vmin, 40vmin) @r(20vmin)
+          @pd(#11cbd7, #c6f1e7, #f0fff3, #fa4659)
+        );
+      }
+    </css-doodle>
+  
+    <svg width="0">
+      <filter id="filter">
+        <feTurbulence type="fractalNoise"
+          baseFrequency=".01" numOctaves="10" />
+        <feDisplacementMap
+          in="SourceGraphic" scale="240" />
+      </filter>
+    </svg>
+  
+    <script>
+      const doodle = document.querySelector('#doodle');
+      document.addEventListener('click', function(e) {
+        doodle.update();
+      })
+      /* Note that the grid value inside the :doodle selector has higher
+        priority than the attribute value on the element. So this setter
+        operation may not have an affect on the final grid value. */
+      // doodle.grid = "5";
+  
+      // console.log(doodle.grid);
+      /* { x: 5, y: 5, size: 25 } */
+    </script>
+  </body>
+</html>

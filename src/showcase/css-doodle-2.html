@@ -1,0 +1,51 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-2</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #262546;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+    - Click anywhere the update the css-doodle
+    - Website: https://css-doodle.com/
+    - Creator: https://twitter.com/yuanchuan23
+  -->
+    <css-doodle grid="5" click-to-update>
+      :doodle {
+        @size: 20em;
+        grid-gap: 15px;
+      }
+
+      transition: all .4s ease;
+      border-top: 1px solid hsl(@rand(137.50deg, 360deg), 80%, 80%);
+      border-right: 1px solid hsl(@rand(137.50deg, 360deg), 80%, 80%);
+
+      :after {
+        content: \@hex(@rand(9632, 9687));
+        color: hsl(@rand(137.50deg, 360deg), 80%, 80%);
+      }
+
+      @random {
+        border-top: 1px solid transparent;
+        border-right: 1px solid transparent;
+        border-bottom: 1px solid hsl(@rand(137.50deg, 360deg), 80%, 80%);
+        border-left: 1px solid hsl(@rand(137.50deg, 360deg), 80%, 80%);
+        border-style: dashed;
+      }
+    </css-doodle>
+  </body>
+</html>

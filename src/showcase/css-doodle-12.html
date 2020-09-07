@@ -1,0 +1,45 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-12</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle click-to-update>
+      :doodle {
+        @grid: 6 / 100vmax; 
+      }
+      
+      --c: hsla(
+        @rand(240, 380), 70%, 70%,  
+        @rand(.6, .9)
+      );
+      
+      :after {
+        content: '\@hex(@rand(0x1401, 0x141b))';
+        font-size: 10vmax; 
+        background: linear-gradient(
+          @rand(360deg),
+          transparent 50%, var(--c) 50% 
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: var(--c);
+        -webkit-text-stroke-width: .5px;
+        color: transparent;
+      }
+    </css-doodle>
+  </body>
+</html>

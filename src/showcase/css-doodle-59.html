@@ -1,0 +1,34 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-59</title>
+    <link rel='stylesheet prefetch' href='https://cdn.jsdelivr.net/devicons/1.8.0/css/devicons.min.css'>
+    <style>
+      html,body{
+        margin:0;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle click-to-update>
+      :doodle { 
+        @grid: 25 / 100vmax; 
+        background: black;
+      } 
+      :after { 
+        font-family: devicons; 
+        content: '\e622';
+        font-size: 3.6vmax; 
+        color: hsla( @rand(360), 70%, 70%,@rand(.9) ); 
+      }
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

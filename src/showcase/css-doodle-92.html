@@ -1,0 +1,164 @@
+<!-- https://css-doodle.com -->
+<html>
+    <head>
+        <title>css3-doodle-92</title>
+        <style>
+            html,body {
+                margin: 0;
+                padding: 0;
+            }
+
+            :root {
+                --colorStarCenter1: rgba(255, 255, 255, 1);
+                --colorStarCenter2: rgba(224, 224, 255, 0.6);
+                --colorStarCenter3: rgba(252, 253, 222, 0.6);
+                --colorStarGlow1: #ffffff06;
+                --colorStarGlow2: #e3e3ff06;
+                --colorStarGlow3: #fffadf06;
+                --colorBackground: #111;
+
+                --s: 80vmin;
+            }
+
+            :root {
+                --spirals: (
+
+                    :doodle {
+                    @grid: 26x26 / 100%;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    transform-style: preserve-3d;
+                    }
+
+                    --d: calc(var(--s) / 20 * @r(1.5, 3.5));
+
+                    @place-cell: center;
+                    @size: @var(--d);
+
+                    opacity: @r(0.8, 1);
+                    border-radius: 100%;
+
+                    --xNoise: @r(-1, 1) * @var(--s) / 5;
+                    --yNoise: @r(-1, 1) * @var(--s) / 5;
+                    --radius: 0.5 * @var(--s) * @p(-1, 1) * @r(-0.1, 9) / 9;
+                    --noiseMultiplier: (@lr() / 21 + 0.06);
+
+                    /* can't put calc inside @cos/@sin but can use last random @r */
+                    --x: @var(--radius) * @cos(@lr()) + @var(--xNoise) * @var(--noiseMultiplier);
+                    --y: @var(--radius) * @sin(@lr()) + @var(--yNoise) * @var(--noiseMultiplier);
+                    --z: 0.03 * @p(1, -1) * @var(--noiseMultiplier) * @var(--s) * @r(1);
+
+
+                    background-color: @p(
+                    var(--colorStarGlow1), 
+                    var(--colorStarGlow2), 
+                    var(--colorStarGlow3)
+                    );
+                    
+                    :after {
+                    background-color: @p(
+                        var(--colorStarCenter1), 
+                        var(--colorStarCenter2), 
+                        var(--colorStarCenter3)
+                    );
+                    content: '';
+                    border-radius: 100%;
+                    @size: @var(--d);
+                    transform: scale(0.11);
+                    }
+
+                    will-change: transform;
+                    animation: rotation 160s steps(3840) infinite;
+
+                    @keyframes rotation {
+                        from {
+                            transform:
+                            rotate3d(1, 0, 0, 33deg)
+                            rotate3d(0, 0, 1, 359deg)
+                            translate3d(
+                                calc(@var(--x)),
+                                calc(@var(--y)),
+                                calc(@var(--z))
+                            )
+                            scale(1)
+                            perspective(calc(var(--s)))
+                            ;
+                        }
+                        to {
+                            transform:
+                            rotate3d(1, 0, 0, 33deg)
+                            rotate3d(0, 0, 1, 0deg)
+                            translate3d(
+                                calc(@var(--x)),
+                                calc(@var(--y)),
+                                calc(@var(--z))
+                            )
+                            scale(1)
+                            perspective(calc(var(--s)))
+                            ;
+                        }
+                    }
+
+                );
+            }
+
+            html, body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                background: var(--colorBackground);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                filter: brightness(1.1) contrast(1.35);
+            }
+
+            .art {
+                filter: url(#effects) ;
+                position: relative;
+                width: var(--s);
+                height: var(--s);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="art">
+            <css-doodle use="var(--spirals)"></css-doodle>
+        </div>
+        
+        <svg width="0" height="0" style="display: fixed;" >
+            <filter id="effects" filterUnits="objectBoundingBox" >
+                <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.01"
+                numOctaves="1"
+                result="warper"
+                />
+            <!--     <feColorMatrix
+                in="warper"
+                type="hueRotate"
+                values="150"
+                result="rotated"
+                /> -->
+                <feDisplacementMap
+                in="SourceGraphic"
+                in2="warper"
+                xChannelSelector="R"
+                yChannelSelector="G"
+                scale="20"
+                result="noised"
+                />
+                <feGaussianBlur in="noised" stdDeviation="0.2" result="smallblur" />
+                <feGaussianBlur in="noised" stdDeviation="1.4" result="bigblur" />
+                <feComposite in="smallblur" in2="bigblur" operator="atop" />
+
+            </filter>
+        </svg>
+        <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    </body>
+</html>

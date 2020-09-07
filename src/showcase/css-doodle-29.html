@@ -1,0 +1,80 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-29</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #333333;
+      overflow: hidden;
+    }
+
+    css-doodle {
+      width: 50vw;
+      height: 50vw;
+      min-width: 300px;
+      min-height: 300px;
+    }
+    </style>
+  </head>
+  <body>
+    <css-doodle grid="1x18">
+      :doodle {
+        max-width: 60vw; max-height: 60vw;
+      }
+    
+      @place-cell: center;
+      @size: calc(@i()*6%);
+    
+      border-radius: 50%;
+      border-style: dashed;
+      border-width: calc(@i() * 2px);
+      border-color: hsla(
+        @rand(150, 180), 100%, 50%,
+        calc(3 / @i() * .8)
+      );
+      
+      @keyframes changeRotate {
+        from {
+          transform: rotate(@r(360deg));
+        }
+    
+        to {
+          transform: rotate(@r(0deg));
+        }
+      }
+      
+      animation-duration: calc(2s * @i());
+      animation-name: changeRotate;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-delay: calc(0.08s * @i());
+      
+      @at(1, 13) {
+        border-style: dotted;
+        border-color: hsla(
+          190, 70%, 50%, 90%
+        );
+      }
+      
+      @at(1, 17) {
+        border-style: dotted;
+        border-color: hsla(
+          190, 70%, 50%, 90%
+        );
+      }
+    </css-doodle>
+  </body>
+</html>

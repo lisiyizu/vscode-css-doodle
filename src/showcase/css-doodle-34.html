@@ -1,0 +1,66 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-34</title>
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        background-color: #191919;
+        overflow: hidden;
+        font-family: 'Open Sans', sans-serif;
+        color: #fff;
+      }
+  
+      h1 {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        font-size: 69px;
+        line-height: 73px;
+        letter-spacing: 10px;
+        text-shadow: 0px 0px 4px #000;
+      }
+  
+      h2 {
+        position: absolute;
+        bottom: 0%;
+        right: 5%;
+        font-size: 16px;
+        color: #b2b2b2;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle>
+      :doodle {
+      @grid: 20x15 / 100vw 100vh;
+      margin: .5px;
+      }
+    
+      :after {
+      content: \@hex(@rand(9632, 9687));
+      color: #fff;
+      opacity: @p(0, 1);
+      font-size: @rand(.4em, 1.6em);
+    
+      text-shadow: @p(-2px, 2px) @p(-2px, 2px) @p(rgba(255,0,0, @rand(0, 1)), rgba(0,255,0, @rand(0, 1)), rgba(0,0,255,
+      @rand(0, 1)));
+    
+      animation: move @r(10s, 10s) linear infinite;
+      animation-delay: -@r(5s);
+      }
+    
+      @keyframes move {
+      from { transform: translate(-100%); }
+      to { transform: translate(100%); }
+      }
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.1/css-doodle.min.js"></script>
+  </body>
+</html>

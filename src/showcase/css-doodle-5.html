@@ -1,0 +1,62 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-5</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </head>
+  <body>
+    <style>
+      /* Change the gradient angle to get different result */
+      css-doodle {
+        --rule: ( :doodle {
+            @grid: 33 / 100vmax;
+            @min-size: 800px;
+          }
+
+          :container {
+            transform: rotateY(30deg) rotate(10deg) scale(1.5);
+          }
+
+          :after {
+            content: '';
+            @size: 61.8%;
+            background-size: @rand(5%, 50%) @rand(5%, 50%);
+            background-position: center;
+          }
+
+          @even {
+            background: #df0054;
+
+            :after {
+              background-image: linear-gradient(0deg,
+                #f7f1e7 50%, transparent 50%);
+            }
+          }
+
+          @odd {
+            background: @pick(#f7f1e7, #10004a);
+
+            :after {
+              background-image: linear-gradient(90deg,
+                #df0054 50%, transparent 50%);
+            }
+          }
+
+        );
+      }
+
+      html,
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+    <!--
+      - Click anywhere the update the css-doodle
+      - Website: https://css-doodle.com/
+      - Creator: https://twitter.com/yuanchuan23
+    -->
+    <css-doodle use="var(--rule)" click-to-update>
+    </css-doodle>
+  </body>
+</html>

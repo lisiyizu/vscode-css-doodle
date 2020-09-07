@@ -1,0 +1,129 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-33</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      body {
+        margin:0;
+        padding:0;
+        background-color:#1e222a;
+      }
+
+      .box-set {
+        -webkit-box-shadow: 0px 1px 15px 1px rgba(69,65,78,0.08);
+          box-shadow: 0px 1px 15px 1px rgba(69,65,78,0.08);
+          background-color: #fff;
+        padding:10px;
+        border-radius:5px;
+        border:1px solid #dedede;
+      }
+
+      .top-doodle {
+          position: absolute;
+          top: 0;
+          left: 0;
+      }
+
+      .wrap-doodle {
+          position: relative;
+          z-index: 0;
+      }
+
+      .dark {
+          --bg: #222831;
+          --bg2: rgba(0, 0, 0, .3);
+          --bg3: #1A1D24;
+          --bg4: black;
+          --footer-bg: rgba(0, 0, 0, .3);
+          --code: #F59BAC;
+          --code-text: #FAD7A0;
+          --code-text: #FEE6C0;
+          --code-comment: #81899B;
+          --text-color: #F9FFEE;
+          --pale-text: #dfa612;
+          --info-box-text: antiquewhite;
+          --gs0: rgba(239, 187, 53, 0.6);
+          --gs1: rgba(239, 187, 53, 0.6);
+          --green1: #EFBB35;
+          --green2: #E84279;
+          --green3: #dfa612;
+          --top1: #302E24;
+          --top2: #28313E;
+          --subtle-green1: rgba(236, 198, 48, .1);
+          --subtle-green2: #1A1D24;
+          --subtle-yellow3: rgba(236, 198, 48, .1);
+          --fb: #fff;
+          --reddit: #fff;
+          --h-news: #fff;
+          --twitter: #fff;
+          --cat-head: #1A1D24;
+          --front-text-color: antiquewhite;
+          --info-box-bg: #1A1D24;
+      }
+
+      :root {
+          --bg: #fff;
+          --bg2: #fafafa;
+          --bg3: #fcfcfc;
+          --bg4: #f8f8f8;
+          --footer-bg: rgba(114,186,94,.15);
+          --code: #dc3958;
+          --code-text: #6C7757;
+          --code-comment: #9AA880;
+          --text-color: #555;
+          --pale-text: #999;
+          --info-box-text: #84613d;
+          --gs0: #eee;
+          --gs1: #CCC;
+          --gs2: #AAA;
+          --green1: #008f68;
+          --green2: #6DB65B;
+          --green3: #4AAE9B;
+          --yellow1: #EFBB35;
+          --yellow2: #dfa612;
+          --yellow3: #FAE042;
+          --subtle: rgba(0, 0, 0, .1);
+          --very-subtle: rgba(0, 0, 0, .05);
+          --top1: rgba(107, 183, 86, .95);
+          --top2: rgba(0, 143, 104, .95);
+          --subtle-green1: rgba(114, 186, 94, 0.55);
+          --subtle-green2: rgba(114, 186, 94, 0.05);
+          --subtle-yellow1: rgba(239, 187, 53, 0.6);
+          --subtle-yellow2: rgba(236, 198, 48, .1);
+          --subtle-yellow3: rgba(236, 198, 48, .3);
+          --fb: #3b5998;
+          --reddit: #FC471E;
+          --h-news: #F60;
+          --twitter: #00aced;
+          --cat-head: rgba(114, 186, 94, 0.1);
+          --front-text-color: #93a791;
+          --info-box-bg: rgba(255, 213, 70, 0.1);
+      }
+
+      .heading{
+          position: absolute;
+          padding-top: 189px;
+          color: white;
+          text-align: center;
+          letter-spacing: 3px;
+          text-shadow: 2px 6px 4px #090a0a;
+          left: 35%;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle class="top-doodle"> 
+      :doodle { @grid: 1x35 / 100% 10rem; } 
+      @keyframes slide-in { 0% { transform:
+      translateY(-100%); } 100% { transform: traslateY(0); } } 
+      :hover { opacity: 1; } transition: opacity .2s ease-out;
+      animation: slide-in .25s ease-out; 
+      opacity: @pick(0.05, 0.1, 0.2, 0.3, 0.4); 
+      background: @pick(var(--yellow1),
+      var(--yellow2), var(--yellow3), var(--green1), var(--green2), var(--green3)); 
+      height: @rand(15%, 100%); 
+      margin: 0 .2rem; 
+    </css-doodle>
+  </body>
+</html>

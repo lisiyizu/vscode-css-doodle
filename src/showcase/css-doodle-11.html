@@ -1,0 +1,62 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-11</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background: #270F34;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle click-to-update>
+      --time: 4s;
+      --delay: calc(-1 * @index() * var(--time) / 20);
+      
+      :doodle{
+        @grid: 12x1;
+      }
+      @place-cell:center;
+      @size: 100px, 30px;
+      background-color: @pick(#34a5d4,#00c7b4,#81e567,#d7f500,#ffff42,#ffe26a,#f99d78,#f79fb7, #fc71c4,#ff009b,#c672c2,#af8afe);
+      @keyframes rotate {
+        0%,
+        33% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      animation: rotate var(--time) infinite ease-in var(--delay);
+      
+      border-radius: 3px 8px 8px 3px;
+      border: 2px solid #444;
+      transform-origin: right center;
+      z-index: calc(@index() + 2);
+      :after {
+        content: '';
+        @size: 40%, 100%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: #fff;
+        border-left: 2px solid #444;
+        border-radius: 0px 6px 6px 0px;
+        background-image: linear-gradient(to right, #cbcccc, #cbcccc),linear-gradient(to right, #cbcccc, #cbcccc);
+        background-repeat: no-repeat;
+        background-position: 5px center, 12px 8px;
+        background-size: 4px 20px, 2px 15px;
+      }
+    </css-doodle>
+  </body>
+</html>

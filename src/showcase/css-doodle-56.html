@@ -1,0 +1,57 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-56</title>
+    <style>
+      html,
+      body {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+  
+      :root {
+        --hue: 200;
+        --light: 20%;
+        --color: (background-color: hsl(var(--hue), 100%, calc(var(--light) + 15%)));
+      }
+  
+      body {
+        background-color: hsl(var(--hue),
+            100%,
+            var(--light));
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle>
+      :doodle {
+        @grid: 16 / 800px;
+      }
+      @shape: hexagon;
+      @row(odd) {
+        transform: translateY( calc( @row() * 10% * -1) );
+        @random {
+          transform: translateY( calc( @row() * 10% * -1) ) scale(1.1);
+        }
+      }
+      @row(even) {
+        transform: translate( 50%, calc( @row() * 10% * -1 ) );
+        @random {
+          transform: translate( 50%, calc( @row() * 10% * -1 ) ) scale(1.1);
+        }
+      }
+      @use: var(--color);
+      transition: transform 0.75s ease-in-out;
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <script>
+      const doodle = document.querySelector('css-doodle');
+      setInterval(() => doodle.update(), 500);
+    </script>
+  </body>
+</html>

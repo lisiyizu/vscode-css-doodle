@@ -1,0 +1,65 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-39</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+  
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle, #0C3F6A, #000064);
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle click-to-update>
+      :doodle {
+        @grid: 15 / 20rem 20rem;
+        @shape: circle;
+        background: #0a0c27;
+        max-width: 90%;
+      }
+      :after {
+        content: '\@hex(@rand(0x2234, 0x2237))';
+        color: @pick(#fcecc9,#fcb0b3,#f93943,#7eb2dd,#445e93);
+        opacity: calc(@rand(5, 10) / 10);
+        font-size: 2vmax;
+      }
+    </css-doodle>
+    <css-doodle click-to-update>
+      :doodle {
+        @grid: 15 / 20rem 20rem;
+        @shape: circle;
+        background: #0a0c27;
+        max-width: 90%;
+      }
+      :after {
+        content: '\@hex(@rand(0x25B2, 0x25CF))';
+        color: @pick(#DAF7A6,#FFC300,#FF5733,#C70039,#900C3F,#581845);
+        opacity: calc(@rand(5, 10) / 10);
+        font-size: 2vmax;
+      }
+    </css-doodle>
+    <css-doodle click-to-update>
+      :doodle {
+        @grid: 15 / 20rem 20rem;
+        @shape: circle;
+        background: #0a0c27;
+        max-width: 90%;
+      }
+      :after {
+        content: '\@hex(@rand(0x1D6FC, 0x1D71B))';
+        color: hsla(@r(360), 100%, 70%, 1);
+        font-size: 2vmax;
+      }
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

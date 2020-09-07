@@ -1,0 +1,62 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-43</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        background: white;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle>
+      :doodle {
+        @grid: 1x18;
+      }
+      :container {
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        background:white;
+        overflow:hidden;
+      }
+      @place-cell: center;
+      @size: calc(@index * calc(1.1px + calc(@index * 2px)));
+      z-index: calc(10 - @index);
+      --delay: calc(@index * 0.1s);
+      border-radius:0%;
+      border-color: white;
+      border-style:dotted;
+      border-width: calc(@index * 1px);
+      width:100%;
+      animation-name: scale;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease;
+      animation-delay:var(--delay);
+      border-top:0;
+      border-right:0;
+      border-left:0;
+      transform: scale(1.1);
+      @keyframes scale {
+        100%,0%{
+          border-color:#F1F1F1;
+          transform: translateY(-25%);
+        }
+        50%{
+          border-color:#005365;
+          transform: translateY(25%);
+        }
+      }
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

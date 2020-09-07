@@ -1,0 +1,37 @@
+<!-- https://css-doodle.com -->
+<html>
+    <head>
+        <title>css3-doodle-94</title>
+        <style>
+            html,body {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <style>
+            css-doodle {
+                --rule: (
+                    :doodle {
+                        @grid: 10x1;
+                        width: 90vmin;
+                        height: 90vmin;
+                    }
+                    
+                    @place-cell: center;
+                    @size: calc(100% / 10 * @index);
+                    opacity: calc(1.1 - 1 / 10 * @index);
+                    z-index: calc(10 - @index);
+                    background: teal;
+                );
+            }   
+        </style>  
+        <css-doodle use="var(--rule)" click-to-update></css-doodle>
+        <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-50</title>
+    <style>
+      html, body {  
+      height: 100%;  
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ebfffa; 
+    }
+    </style>
+  </head>
+  <body>
+    <style>
+      css-doodle {
+        --rule: (
+          :doodle {
+            @size: 0;
+            overflow: hidden;
+            transform: translate(-100%, -100%);
+            border-radius: 50%;
+            filter: url(#filter);
+            transition: box-shadow 3s ease;
+            box-shadow: @m10(
+              @r(30vw) @r(30vh) @r(10vmin, 30vmin) @r(5vmin, 50vmin)
+              @pd(#90f2ff, #6eb6ff, #7098da)
+            );
+          }
+        );
+      }   
+    </style>
+    <css-doodle use="var(--rule)" id="doodle" click-to-update></css-doodle>
+    <svg width="0">
+      <filter id="filter">
+        <feTurbulence type="fractalNoise"
+          baseFrequency="0.015" numOctaves="5" />
+        <feDisplacementMap
+          in="SourceGraphic" scale="400" />
+      </filter>
+    </svg>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>  
+
+</html>

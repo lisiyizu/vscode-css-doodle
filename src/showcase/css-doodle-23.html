@@ -1,0 +1,60 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-23</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      html {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+  
+      body {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2px;
+        margin: auto;
+        height: 48%;
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <style>
+      css-doodle {
+        --invader: (:doodle {
+            --s: 20vmin;
+            --c: hsl(@r(360deg), 64%, 61%);
+            @grid: 7x4 / @var(--s);
+            grid-template: repeat(7, 1fr)/repeat(4, @calc(--s)/7);
+            background: #F0F0F0;
+            padding: 2vmin;
+          }
+  
+          :container {
+            width: calc(@var(--s) / 7 * 4);
+            -webkit-box-reflect: right calc(@var(--s) / -7);
+          }
+  
+          @size: 100%;
+  
+          @random(.55) {
+            background: @var(--c);
+          }
+  
+        );
+      }
+    </style>
+  
+    <css-doodle use="var(--invader)" click-to-update></css-doodle>
+    <css-doodle use="var(--invader)" click-to-update></css-doodle>
+    <css-doodle use="var(--invader)" click-to-update></css-doodle>
+    <css-doodle use="var(--invader)" click-to-update></css-doodle>
+    <css-doodle use="var(--invader)" click-to-update></css-doodle>
+    <css-doodle use="var(--invader)" click-to-update></css-doodle>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-53</title>
+    <style>
+      html{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background: #333;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle click-to-update>
+      :doodle { @grid: 20 / 100vmax; background: #5fa6bf; } 
+      @even { 
+        :after { 
+          color: #fff3e6; 
+          content: '\@hex(@rand(9500, 9700))'; 
+          font-size: 5vmax; 
+          transform: scale(@rand(.2, 1.5)); 
+        } 
+      } 
+      @odd { 
+        :after { 
+          color: #ffb37f; 
+          content: '\@hex(@rand(9500, 9700))'; 
+          font-size: 5vmax; 
+          transform: scale(@rand(.2, 1.5));
+        }
+      }
+       
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>    
+  </body>
+</html>

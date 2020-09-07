@@ -1,0 +1,72 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-21</title>
+    <meta charset="utf-8"/>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background: #000; 
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center
+      }
+    </style>
+  </head>
+  <body>
+    <style>
+      css-doodle {
+        --rule: (
+          :doodle {
+            @grid: 1x100 / 100%;
+            overflow: hidden;
+          }
+        
+          writing-mode: vertical-lr;
+  
+          display: block;
+          color: #9bff9b;
+          filter: @ms2(drop-shadow(0 0 @p(2em, 2px) currentColor));
+  
+          :after, :before {
+            font-size: 10px;
+            text-align: right;
+            white-space: nowrap;
+            display: block;
+          }
+  
+          :after {
+            transform: translate3d(@r(-50%, 50%), @r(-20%, 100%), 0) rotate(180deg);
+            mask: linear-gradient(to bottom, #fff 80%, transparent);
+            /* font-family: "Helvetica Neue", Helvetica; */
+            /* content: '\@hex(@rand(0x2f3c, 0x2f9f))'; */
+            content: @repeat(@ri(15, 25), @p(
+              \@hex(@r(0x3041, 0x30FF)),
+              \@hex(@r(0x2000, 0x206f))
+            ));
+          }
+  
+          :first-letter {
+            text-shadow: @m2(0 0 10px #fff);
+            color: #fff;
+          }
+  
+          :before {
+            /* font-family: "Helvetica Neue", Helvetica; */
+            /* content: '\@hex(@rand(0x2f3c, 0x2f9f))'; */
+            content: @repeat80(\@hex(@r(0x2000, 0x206f)));
+            position: absolute;
+            transform: translate3d(0, @r(-20%, 100%), 0);
+            opacity: @r(.01, .2);
+          }
+        )  
+      }  
+    </style>
+    <css-doodle use="var(--rule)" click-to-update></css-doodle>
+  </body>
+</html>

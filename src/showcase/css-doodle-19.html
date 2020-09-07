@@ -1,0 +1,65 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-19</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle id="doodle" click-to-update>
+      :doodle {
+        transform-style: preserve-3d;
+        persepective: 500;
+        @grid: 8x10 / 40vmin; 
+      }
+      
+      @place-cell: center;
+      transform-origin: 100% 0;
+  
+      z-index: 9;
+      opacity: .4;
+      
+      width: calc((20 + @rand(5)) * 1%);
+      height: calc((20 + @rand(5)) * 1px);
+      
+      border-right: 10px solid #FC9939;
+      border-top: 4px solid #FC9939;
+      border-left: none;
+      border-bottom: none;
+      
+      border-radius: 100% 0%;
+      transform:
+        translate(-50%, 50%)
+        rotate(calc(@rand(360deg)));
+      
+      @col(-n + 3) {
+        opacity: 1;
+        background: linear-gradient(45deg, #FABFFf 20%, #fff 75%, #fff 100%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 100% 0%;
+      
+        @size: calc(30% + @col() * 10%);
+        z-index: calc((3 - @col()) * 3 + @p(0, 1, 2));
+      
+        box-shadow: 
+          0 0 calc(@p(6, 7, 8) * 1px + 5px) 
+          rgba(0, 0, 0, calc(@lp() * 0.01 + 0.05));
+      
+        transform:
+          translate(-50%, 50%)
+          rotate(calc((360 / 8 * @row() + @col() * 15 + @pick([0-7])) * 1deg));
+      }
+    </css-doodle>
+  </body>
+</html>

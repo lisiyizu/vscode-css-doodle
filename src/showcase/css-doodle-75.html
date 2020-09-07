@@ -1,0 +1,53 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-75</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle>
+      :doodle {
+        @grid: 1x15 / 100vmin;
+        background: #000;
+      }
+      
+      position: absolute;
+      @size: 100%;
+      
+      background: @m(100, (
+        linear-gradient(
+          #fff 50%, transparent 0
+        )
+        @r(0, 100%) @r(0, 100%) /
+        1px @r(100px)
+        no-repeat
+      ));
+      
+      will-change: transform;
+      animation: f @r(5s, 10s)
+        linear -@r(10s) infinite;
+      
+      @keyframes f {
+        from {
+          transform: translateY(-100%);
+        }
+        to {
+          transform: translateY(100%);
+        }
+      }    
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>    
+  </body>
+</html>

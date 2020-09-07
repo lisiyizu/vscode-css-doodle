@@ -1,0 +1,44 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-40</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle click-to-update>
+      :doodle {
+        @grid: 7 / 100vmax;
+        background: #f6a2f6;
+        background: repeating-linear-gradient(
+        45deg,
+        #f6a2f6,
+        #f6a2f6 20px,
+        #f7b5cd 20px,
+        #f7b5cd 40px
+      );
+      }
+      @shape: box 5;
+      background: hsla(
+        calc(360 - @i() * 4), 70%, 68%, @r(.8)
+      );
+      background: #5d9bd6;
+      margin: 20%;
+      box-shadow: @multiple(5, (
+        calc(@n() * 2px) calc(@n() * 2px) 0 0 #de1cc6
+      ));
+    
+      transform:
+        scale(@r(.1, 1.5))
+        translate(@multi(2, @r(-50%, 50%)));
+        transform: rotate(@r(180deg));
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

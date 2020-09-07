@@ -1,0 +1,35 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-4</title>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+    </style>
+    </head>
+ <body>
+   <!--
+    - Click anywhere the update the css-doodle
+    - Website: https://css-doodle.com/
+    - Creator: https://twitter.com/yuanchuan23
+  -->
+  <css-doodle grid="5" click-to-update>
+    :doodle { 
+      @grid: 20 / 100vmax;
+      @min-size: 60em;
+      grid-gap: 1px 
+    }
+    :after {
+      content: \@hex(@rand(9632, 9687));
+      color: #60569e;
+    }
+  </css-doodle>
+ </body>
+
+</html>

@@ -1,0 +1,66 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-37</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+  
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle, #0C3F6A, #000064);
+      }
+    </style>
+  </head>
+  <body>
+    <style>
+      css-doodle {
+        --rule: ( :doodle {
+            @grid: 50x1 / 50vmin;
+            perspective: 70vmin;
+          }
+  
+          background: @multi(@r(40, 20), (radial-gradient(@p(#07243c, #0a3153, #0c3f6a, #0F4C81, #53a4ea, #c7f0ff, #ffffff) 15%,
+                transparent 50%) @r(100%) @r(100%) / @r(1%, 3%, .1) @lr() no-repeat));
+  
+          @size: 70%;
+          @place-cell: center;
+  
+          border-radius: 50%;
+          transform-style: preserve-3d;
+          animation: scale-up 15s linear infinite;
+          animation-delay: calc(@i() * -.4s);
+  
+          @keyframes scale-up {
+            0% {
+              opacity: 0;
+              transform: translate3d(0, 0, 0) rotate(0);
+            }
+  
+            10% {
+              opacity: 1;
+            }
+  
+            95% {
+              transform: translate3d(0, 0, @r(40vmin, 85vmin)) rotate(@r(-360deg, 360deg));
+            }
+  
+            100% {
+              opacity: 0;
+              transform: translate3d(0, 0, 1vmin);
+            }
+          }
+  
+        );
+      }
+    </style>
+    <css-doodle use="var(--rule)"></css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>  
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-1</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle click-to-update> 
+      :doodle {
+        @grid: 20 / 100vmax;
+        background: #0a0c27;
+        font-family: sans-serif;
+      }
+      :after {
+        content: \@hex.@r(0x2500, 0x257f);
+        color: hsla(@r360, 70%, 70%, @r.9);
+        font-size: 5vmax;
+      }
+    </css-doodle>
+    <script>
+      const doodle = document.querySelector('css-doodle');
+      /* Note that the grid value inside the :doodle selector has higher
+        priority than the attribute value on the element. So this setter
+        operation may not have an affect on the final grid value. */
+      doodle.grid = "5";
+
+      console.log(doodle.grid);
+      /* { x: 5, y: 5, size: 25 } */
+    </script>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>

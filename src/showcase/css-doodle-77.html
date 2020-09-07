@@ -1,0 +1,56 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>  
+    <title>css-doodle-77</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle click-to-update>
+      :doodle {
+        @grid: 32 / 100vmax;
+        background-color: #000064;
+      }
+      :container {
+        transform: scale(1.2) rotate(-45deg);
+      }
+      ::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%) rotate(45deg);
+        @size: .2vmax;
+        background-color: #000064;
+        border: .1vmax solid currentColor;
+        border-radius: .1vmax;
+      }
+      color: hsla(calc(420 - @i() / 3), 70%, 70%, @r(.1, 1));
+      @random(.1) {
+        ::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          @size: 100%;
+          border-top: .15vmax @p(solid, dashed) currentColor;
+          border-right: .15vmax @p(solid, dashed) currentColor;
+          transform: rotate(@p(0, 90, 180, 270)deg);
+        }
+      }
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>  
+  </body>
+</html>

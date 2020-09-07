@@ -1,0 +1,40 @@
+<!-- https://css-doodle.com -->
+<html>
+  <head>
+    <title>css-doodle-38</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+  
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle, #0C3F6A, #082b4a);
+      }
+    </style>
+  </head>
+  <body>
+    <css-doodle>
+      :doodle {
+        @grid: 5x8 / 100% 100vh;
+      }
+      :after {
+        content: "@index()"
+      }
+      @even {
+        background: #f36;
+      }
+      @odd {
+        background: #60569e;
+      }
+      margin: .5rem;
+      color: #fff;
+    </css-doodle>
+    <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+  </body>
+</html>
