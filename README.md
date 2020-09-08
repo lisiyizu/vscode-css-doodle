@@ -11,5 +11,5 @@
 ### Features
 
 - Preview css-doodle case
-- Hover
+- Hover definition for css-doodle 
 - Auto completions for css-doodle
